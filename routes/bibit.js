@@ -32,3 +32,18 @@ router.post('/', (req, res) => {
     bibit.push(newbibit);
     res.status(201).json(newbibit);
 });
+
+
+router.put('/:id', (req, res) => {
+    const bibitIndex = bibit.findIndex(t => t.id === parseInt(req.params.id));
+    if (!bibitIndex === -1)
+        return res.status(404).json({ message: 'Bibit tidak ditemukan' });
+
+    bibit[bibitIndex] = {
+        ...bibit[bibitIndex],
+        namaBibit: req.body.namaBibit || bibit[bibitIndex].namaBibit,
+        Jenis_Tanaman: req.body.Jenis_Tanaman || bibit[bibitIndex].Jenis_Tanaman,
+        Harga: req.body.Harga || bibit[bibitIndex].Harga,
+        Stok: req.body.Stok || bibit[bibitIndex].Stok
+    };
+});
