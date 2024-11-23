@@ -46,4 +46,10 @@ router.put('/:id', (req, res) => {
         Harga: req.body.Harga || bibit[bibitIndex].Harga,
         Stok: req.body.Stok || bibit[bibitIndex].Stok
     };
+
+    res.status(200).json({
+        message: `Tugas dengan ID '${req.params.id}' telah diperbarui`,
+        updatedBibit: bibit[bibitIndex],
+    });
+
 });
