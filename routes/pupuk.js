@@ -31,3 +31,17 @@ router.post('/', (req, res) => {
     pupuk.push(newPupuk); 
     res.status(201).json(newPupuk); 
 });
+
+router.put('/:id', (req, res) => { 
+    const pupukIndex = pupuk.find(t => t.id === parseInt(req.params.id)); 
+    if (!pupukIndex === -1) 
+        return res.status(404).json({ message: 'Pupuk tidak ditemukan' }); 
+ 
+    pupuk[pupukIndex] = { 
+        ...pupuk[pupukIndex], 
+        NamaPupuk: req.body.NamaPupuk || pupuk[pupukIndex].NamaPupuk, 
+        JenisPupuk: req.body.JenisPupuk || pupuk[pupukIndex].JenisPupuk,
+        Harga: req.body.Harga || pupuk[pupukIndex].Harga,
+        Stok: req.body.Stok || pupuk[pupukIndex].Stok
+    };
+});
