@@ -8,8 +8,8 @@ const port = 8000;
 
 app.use(bodyParser.json());
 
-app.use("/mobil", mobilRoute);
-app.use("/hp", hpRoute);
+app.use("/bibit", bibitRoute);
+app.use("/pupuk", pupukRoute);
 app.get("/", (req, res) => {
     console.log(["Get ROUTE"]);
     res.send("Selamat Pagiiiii");
