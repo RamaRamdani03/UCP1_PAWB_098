@@ -14,3 +14,8 @@ app.get("/", (req, res) => {
     console.log(["Get ROUTE"]);
     res.send("Selamat Pagiiiii");
 });
+
+app.listen(port, () =>
+    console.log(
+        `Server berjalan di port: http://localhost:${port}`)
+);
