@@ -60,3 +60,5 @@ router.put('/:id', (req, res) => {
      
     });
 });
+
+export default router;
