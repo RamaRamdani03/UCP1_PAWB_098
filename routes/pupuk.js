@@ -16,3 +16,6 @@ const pupuk = [
         Stok: "25000",
     }
 ];
+router.get("/", (req, res) => {
+    res.send(pupuk);
+});
