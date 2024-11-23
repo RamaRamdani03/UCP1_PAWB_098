@@ -19,3 +19,15 @@ const pupuk = [
 router.get("/", (req, res) => {
     res.send(pupuk);
 });
+
+router.post('/', (req, res) => { 
+    const newPupuk = { 
+        id: pupuk.length + 1, 
+        NamaPupuk: req.body.NamaPupuk, 
+        JenisPupuk: req.body.JenisPupuk,
+        Harga: req.body.Harga,
+        Stok: req.body.Stok
+    }; 
+    pupuk.push(newPupuk); 
+    res.status(201).json(newPupuk); 
+});
