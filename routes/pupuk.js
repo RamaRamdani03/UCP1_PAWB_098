@@ -49,4 +49,14 @@ router.put('/:id', (req, res) => {
         message: `Tugas dengan ID '${req.params.id}' telah diperbarui`, 
         updatedpupuk: pupuk[pupukIndex], 
     });
+    
+    router.delete('/:id', (req, res) => { 
+        const pupukIndex = pupuk.findIndex(t => t.id === parseInt(req.params.id)); 
+        if (pupukIndex === -1) return res.status(404).json({ message: 'Pupuk tidak ditemukan' }); 
+     
+        const deletepupuk = pupuk.splice(pupukIndex, 1)[0]; // Menghapus dan menyimpan todo yang dihapus 
+        res.status(200).json({ message: `Tugas '${deletepupuk.NamaPupuk}' telah dihapus`
+        }); 
+     
+    });
 });
