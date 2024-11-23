@@ -17,3 +17,6 @@ const bibit = [
         Stok: "200",
     },
 ];
+router.get("/", (req, res) => {
+    res.send(bibit);
+});
