@@ -43,5 +43,10 @@ router.put('/:id', (req, res) => {
         JenisPupuk: req.body.JenisPupuk || pupuk[pupukIndex].JenisPupuk,
         Harga: req.body.Harga || pupuk[pupukIndex].Harga,
         Stok: req.body.Stok || pupuk[pupukIndex].Stok
-    };
+    }; 
+ 
+    res.status(200).json({ 
+        message: `Tugas dengan ID '${req.params.id}' telah diperbarui`, 
+        updatedpupuk: pupuk[pupukIndex], 
+    });
 });
